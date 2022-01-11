@@ -4,14 +4,23 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+		"cm": "cz"
   },
   "dependencies": {
+    "commitizen": "^4.2.4",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "cz-customizable": "^6.3.0",
+    "husky": "^7.0.4",
     "preact": "^10.5.15"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.1.5",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
+  },
+	"config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
   }
 }
