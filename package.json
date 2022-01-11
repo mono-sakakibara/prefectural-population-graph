@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint:script": "eslint --fix ./src/**/*.tsx",
 		"cm": "cz"
   },
   "dependencies": {
