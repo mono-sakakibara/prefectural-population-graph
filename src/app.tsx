@@ -1,16 +1,22 @@
-import { Logo } from './logo'
+import { Logo } from './components/elements/logo'
+import styled from 'styled-components'
+
+const Text = styled.p`
+  color: red;
+  font-size: 2rem;
+`
 
 export function App() {
   return (
     <>
       <Logo />
-      <p>Hello Vite + Preact!</p>
+      <Text>Hello Vite + Preact!</Text>
       <p>
         <a
-          class="link"
-          href="https://preactjs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          className='link'
+          href='https://preactjs.com/'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Learn Preact
         </a>
