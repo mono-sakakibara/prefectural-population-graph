@@ -1,4 +1,4 @@
-import { Logo } from './components/elements/logo'
+import { CheckBox } from './components/elements/'
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
 
@@ -67,17 +67,11 @@ export function App() {
 
   return (
     <>
-      <Logo />
-      <p>
-        <a
-          className='link'
-          href='https://preactjs.com/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn Preact
-        </a>
-      </p>
+      {prefectures?.result.map((prefecture, i) => (
+        <span key={i}>
+          <CheckBox prefName={prefecture.prefName} />
+        </span>
+      ))}
     </>
   )
 }
