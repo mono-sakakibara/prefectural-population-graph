@@ -25,7 +25,7 @@
 - チーム開発を意識してコードを記述すること
 
 * 参考
-  *RESAS API: https://opendata.resas-portal.go.j<br/>
+  *RESAS API: https://opendata.resas-portal.go.jp<br/>
   *RESAS API 仕様書: https://opendata.resas-portal.go.jp/docs/api/v1/index.html<br/>
   *Highcharts: https://www.highcharts.com/<br/>
   *Recharts.js: http://recharts.org/en-US/
