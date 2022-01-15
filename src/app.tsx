@@ -1,4 +1,4 @@
-import { CheckBox, Heading } from './components/elements/'
+import { CheckBox, Heading, Graph } from './components/elements/'
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
 import { pc } from './media'
@@ -32,7 +32,7 @@ export function App() {
   }, [])
 
   // 都道府県別の人口構成を取得
-  const getPrefPopulation = (prefName: string, prefCode: number) => {
+  const getPrefPopulation: any = (prefName: string, prefCode: number) => {
     let prefPopulationArray = prefPopulation.slice()
 
     axios
@@ -57,6 +57,39 @@ export function App() {
       })
   }
 
+  const graphTextArray = [
+    {
+      prefName: '愛知県',
+      data: [
+        { year: 1980, value: 100000 },
+        { year: 1990, value: 100000 },
+        { year: 2000, value: 100000 },
+        { year: 2010, value: 100000 },
+        { year: 2020, value: 100000 },
+      ],
+    },
+    {
+      prefName: '東京都',
+      data: [
+        { year: 1980, value: 200000 },
+        { year: 1990, value: 200000 },
+        { year: 2000, value: 200000 },
+        { year: 2010, value: 200000 },
+        { year: 2020, value: 200000 },
+      ],
+    },
+    {
+      prefName: '京都',
+      data: [
+        { year: 1980, value: 300000 },
+        { year: 1990, value: 300000 },
+        { year: 2000, value: 300000 },
+        { year: 2010, value: 300000 },
+        { year: 2020, value: 300000 },
+      ],
+    },
+  ]
+
   const GridLayout = styled.div`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -76,6 +109,7 @@ export function App() {
           </span>
         ))}
       </GridLayout>
+      <Graph populationData={graphTextArray} />
     </>
   )
 }
