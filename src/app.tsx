@@ -1,6 +1,8 @@
-import { CheckBox } from './components/elements/'
+import { CheckBox, Heading } from './components/elements/'
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
+import { pc } from './media'
+import styled from 'styled-components'
 
 export function App() {
   const [prefectures, setPreFectures] = useState<{
@@ -55,23 +57,25 @@ export function App() {
       })
   }
 
-  // テスト表示（北海道）
-  // prefectures &&
-  //   getPrefPopulation(
-  //     prefectures.result[0].prefName,
-  //     prefectures.result[0].prefCode
-  //   )
-  // console.log(prefPopulation)
-  // console.log(prefectures)
-  // テスト表示（北海道）
+  const GridLayout = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    place-items: flex-start;
+    ${pc`
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		`}
+  `
 
   return (
     <>
-      {prefectures?.result.map((prefecture, i) => (
-        <span key={i}>
-          <CheckBox prefName={prefecture.prefName} />
-        </span>
-      ))}
+      <Heading variant='h1'>都道府県</Heading>
+      <GridLayout>
+        {prefectures?.result.map((prefecture, i) => (
+          <span key={i}>
+            <CheckBox prefName={prefecture.prefName} />
+          </span>
+        ))}
+      </GridLayout>
     </>
   )
 }
