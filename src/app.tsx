@@ -1,6 +1,6 @@
-import { CheckBox, Heading, Graph } from './components/elements/'
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
+import { CheckBox, Graph, Header, Layout } from './components/elements/'
 
 export function App() {
   const [prefectures, setPrefectures] = useState<{
@@ -79,14 +79,24 @@ export function App() {
 
   return (
     <>
-      <Heading variant='h1'>都道府県</Heading>
-      {prefectures && (
-        <CheckBox
-          prefectures={prefectures.result}
-          onChange={handleClickCheck}
-        />
-      )}
-      <Graph populationData={prefPopulation} />
+      <Header />
+      <main>
+        <Layout.Section>
+          <Layout.Container>
+            <Layout.CheckBoxWrapper>
+              {prefectures && (
+                <CheckBox
+                  prefectures={prefectures.result}
+                  onChange={handleClickCheck}
+                />
+              )}
+            </Layout.CheckBoxWrapper>
+            <Layout.GraphWrapper>
+              <Graph populationData={prefPopulation} />
+            </Layout.GraphWrapper>
+          </Layout.Container>
+        </Layout.Section>
+      </main>
     </>
   )
 }
