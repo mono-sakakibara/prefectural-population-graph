@@ -1,3 +1,4 @@
+import { FunctionalComponent } from 'preact'
 import styled from 'styled-components'
 import { pc } from '../media'
 
@@ -7,7 +8,8 @@ interface Props {
         prefCode: number
         prefName: string
       }[]
-  onChange: (name: string, prefName: number, check: boolean) => void
+  // eslint-disable-next-line no-unused-vars
+  onChange: (prefName: string, preCode: number, check: boolean) => void
 }
 
 const Wrapper = styled.div`
@@ -30,7 +32,10 @@ const GridLayout = styled.div`
 	`}
 `
 
-export const CheckBox: React.FC<Props> = ({ prefectures, onChange }) => {
+export const CheckBox: FunctionalComponent<Props> = ({
+  prefectures,
+  onChange,
+}) => {
   return (
     <>
       <GridLayout>

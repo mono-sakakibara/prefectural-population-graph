@@ -1,9 +1,10 @@
+import { FunctionalComponent, JSX } from 'preact'
 import styled, { css } from 'styled-components'
 
 interface Props {
   marginBottom?: boolean
   variant: 'h1' | 'h2' | 'h3'
-  children: string | React.ReactNode
+  children: string | JSX.Element
 }
 
 const Heading1 = styled.h1<{ marginBottom?: boolean }>`
@@ -33,7 +34,7 @@ const Heading3 = styled.h3<{ marginBottom?: boolean }>`
     `}
 `
 
-export const Heading: React.VFC<Props> = ({
+export const Heading: FunctionalComponent<Props> = ({
   marginBottom,
   children,
   variant,
