@@ -1,4 +1,3 @@
-import { useState } from 'preact/hooks'
 import styled, { css } from 'styled-components'
 
 interface Props {
