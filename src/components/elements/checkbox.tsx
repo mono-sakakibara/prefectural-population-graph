@@ -1,7 +1,13 @@
 import styled from 'styled-components'
+import { pc } from '../../media'
 
 interface Props {
-  prefName: string
+  prefectures:
+    | {
+        prefCode: number
+        prefName: string
+      }[]
+  onChange: (name: string, prefName: number, check: boolean) => void
 }
 
 const Wrapper = styled.div`
@@ -14,13 +20,39 @@ const PrefName = styled.span`
   margin-left: 10px;
 `
 
-export const CheckBox: React.FC<Props> = ({ prefName }) => {
+const GridLayout = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  place-items: flex-start;
+  ${pc`
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+`}
+`
+
+export const CheckBox: React.FC<Props> = ({ prefectures, onChange }) => {
   return (
     <>
-      <Wrapper>
-        <input type='checkbox' name='Prefecture name' />
-        <PrefName>{prefName}</PrefName>
-      </Wrapper>
+      <GridLayout>
+        {prefectures.map((prefecture, i) => (
+          <Wrapper key={i}>
+            <input
+              type='checkbox'
+              name='Prefecture name'
+              onChange={(event: any) =>
+                onChange(
+                  prefecture.prefName,
+                  prefecture.prefCode,
+                  event.target.checked
+                )
+              }
+              id={`checkbox${prefecture.prefCode}`}
+            />
+            <label htmlFor={`checkbox${prefecture.prefCode}`}>
+              <PrefName>{prefecture.prefName}</PrefName>
+            </label>
+          </Wrapper>
+        ))}
+      </GridLayout>
     </>
   )
 }

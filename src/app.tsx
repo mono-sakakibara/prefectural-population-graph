@@ -1,11 +1,9 @@
-import { CheckBox, Heading } from './components/elements/'
+import { CheckBox, Heading, Graph } from './components/elements/'
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
-import { pc } from './media'
-import styled from 'styled-components'
 
 export function App() {
-  const [prefectures, setPreFectures] = useState<{
+  const [prefectures, setPrefectures] = useState<{
     message: null
     result: {
       prefCode: number
@@ -26,56 +24,63 @@ export function App() {
         headers: { 'X-API-KEY': apiKey },
       })
       .then((results) => {
-        setPreFectures(results.data)
-      })
-      .catch((error) => {})
-  }, [])
-
-  // 都道府県別の人口構成を取得
-  const getPrefPopulation = (prefName: string, prefCode: number) => {
-    let prefPopulationArray = prefPopulation.slice()
-
-    axios
-      .get(
-        'https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear',
-        {
-          headers: { 'X-API-KEY': apiKey },
-          params: {
-            prefCode: prefCode,
-          },
-        }
-      )
-      .then((results) => {
-        prefPopulationArray.push({
-          prefName: prefName,
-          data: results.data.result.data[0].data,
-        })
-        setPrefPopulation(prefPopulationArray)
+        setPrefectures(results.data)
       })
       .catch((error) => {
-        return
+        console.log(error)
       })
-  }
+  }, [])
 
-  const GridLayout = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    place-items: flex-start;
-    ${pc`
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-		`}
-  `
+  const handleClickCheck = (
+    prefName: string,
+    prefCode: number,
+    check: boolean
+  ) => {
+    let prefPopulationArray = prefPopulation.slice()
+
+    const checkPrefName = prefPopulationArray.findIndex(
+      (v) => v.prefName === prefName
+    )
+
+    if (check) {
+      if (checkPrefName !== -1) return
+      axios
+        .get(
+          'https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear',
+          {
+            headers: { 'X-API-KEY': apiKey },
+            params: {
+              prefCode: prefCode,
+            },
+          }
+        )
+        .then((results) => {
+          prefPopulationArray.push({
+            prefName: prefName,
+            data: results.data.result.data[0].data,
+          })
+          setPrefPopulation(prefPopulationArray)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    } else {
+      if (checkPrefName == -1) return
+      prefPopulationArray.splice(checkPrefName, 1)
+      setPrefPopulation(prefPopulationArray)
+    }
+  }
 
   return (
     <>
       <Heading variant='h1'>都道府県</Heading>
-      <GridLayout>
-        {prefectures?.result.map((prefecture, i) => (
-          <span key={i}>
-            <CheckBox prefName={prefecture.prefName} />
-          </span>
-        ))}
-      </GridLayout>
+      {prefectures && (
+        <CheckBox
+          prefectures={prefectures.result}
+          onChange={handleClickCheck}
+        />
+      )}
+      <Graph populationData={prefPopulation} />
     </>
   )
 }
