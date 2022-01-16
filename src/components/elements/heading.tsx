@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Heading1 = styled.h1<{ marginBottom?: boolean }>`
-  font-size: 2rem;
+  font-size: 1.4rem;
   ${(props?) =>
     props.marginBottom &&
     css`
@@ -16,7 +16,7 @@ const Heading1 = styled.h1<{ marginBottom?: boolean }>`
 `
 
 const Heading2 = styled.h2<{ marginBottom?: boolean }>`
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   ${(props) =>
     props.marginBottom &&
     css`
@@ -25,7 +25,7 @@ const Heading2 = styled.h2<{ marginBottom?: boolean }>`
 `
 
 const Heading3 = styled.h3<{ marginBottom?: boolean }>`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   ${(props) =>
     props.marginBottom &&
     css`

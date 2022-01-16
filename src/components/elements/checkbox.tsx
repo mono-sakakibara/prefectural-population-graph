@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 const PrefName = styled.span`
   display: inline-block;
   margin-left: 10px;
+  font-size: 1rem;
 `
 
 const GridLayout = styled.div`
@@ -25,8 +26,8 @@ const GridLayout = styled.div`
   grid-template-columns: repeat(3, minmax(0, 1fr));
   place-items: flex-start;
   ${pc`
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-`}
+	gap: 5px 0;
+	`}
 `
 
 export const CheckBox: React.FC<Props> = ({ prefectures, onChange }) => {
