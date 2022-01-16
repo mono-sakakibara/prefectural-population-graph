@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'preact/hooks'
-import { CheckBox, Graph, Header, Layout } from './components/elements/'
+import { CheckBox, Graph, Header, Layout } from './components/'
 
 export function App() {
   const [prefectures, setPrefectures] = useState<{

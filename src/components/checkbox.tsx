@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { pc } from '../../media'
+import { pc } from '../media'
 
 interface Props {
   prefectures:
