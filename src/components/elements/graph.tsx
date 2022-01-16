@@ -45,6 +45,11 @@ export const Graph: React.FC<Props> = ({ populationData }) => {
         text: '人口数',
       },
     },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+    },
     series:
       series.length === 0
         ? [{ type: 'line', name: '都道府県名', data: [] }]
