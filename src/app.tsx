@@ -18,8 +18,10 @@ export function App() {
   let apiKey = ''
   if (import.meta.env.DEV) {
     apiKey = import.meta.env.VITE_RESAS_API_KEY
+    console.log('dev')
   } else {
     apiKey = process.env.VITE_RESAS_API_KEY as string
+    console.log('prod')
   }
 
   // 都道府県一覧を取得
