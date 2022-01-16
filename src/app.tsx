@@ -15,13 +15,12 @@ export function App() {
     { prefName: string; data: { year: number; value: number }[] }[]
   >([])
 
+  // 本番環境と開発環境で環境変数を出し分ける
   let apiKey = ''
   if (import.meta.env.DEV) {
     apiKey = import.meta.env.VITE_RESAS_API_KEY
-    console.log('dev')
   } else {
     apiKey = process.env.RESAS_API_KEY as string
-    console.log('prod')
   }
 
   // 都道府県一覧を取得
