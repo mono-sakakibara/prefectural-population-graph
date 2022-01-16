@@ -1,3 +1,4 @@
+import { FunctionalComponent } from 'preact'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -8,7 +9,7 @@ interface Props {
   }[]
 }
 
-export const Graph: React.FC<Props> = ({ populationData }) => {
+export const Graph: FunctionalComponent<Props> = ({ populationData }) => {
   let series: Highcharts.SeriesOptionsType[] = []
 
   let categories = []
@@ -26,7 +27,7 @@ export const Graph: React.FC<Props> = ({ populationData }) => {
     series.push({
       type: 'line',
       name: populationData[i].prefName,
-      data: data,
+      data,
     })
   }
 
@@ -38,7 +39,7 @@ export const Graph: React.FC<Props> = ({ populationData }) => {
       title: {
         text: '年度',
       },
-      categories: categories,
+      categories,
     },
     yAxis: {
       title: {

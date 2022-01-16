@@ -1,3 +1,4 @@
+import { FunctionalComponent } from 'preact'
 import styled from 'styled-components'
 
 const Wrapper = styled.header`
@@ -15,7 +16,7 @@ const Title = styled.span`
   color: white;
 `
 
-export const Header: React.FC = () => {
+export const Header: FunctionalComponent = () => {
   return (
     <>
       <Wrapper>
