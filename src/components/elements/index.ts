@@ -1,3 +1,5 @@
 export { CheckBox } from './checkbox'
 export { Heading } from './heading'
 export { Graph } from './graph'
+export { Header } from './header'
+export * as Layout from './layout'
