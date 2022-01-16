@@ -15,7 +15,12 @@ export function App() {
     { prefName: string; data: { year: number; value: number }[] }[]
   >([])
 
-  const apiKey = import.meta.env.VITE_RESAS_API_KEY
+  let apiKey = ''
+  if (import.meta.env.DEV) {
+    apiKey = import.meta.env.VITE_RESAS_API_KEY
+  } else {
+    apiKey = process.env.VITE_RESAS_API_KEY as string
+  }
 
   // 都道府県一覧を取得
   useEffect(() => {
