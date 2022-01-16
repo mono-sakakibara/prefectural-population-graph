@@ -20,7 +20,7 @@ export function App() {
     apiKey = import.meta.env.VITE_RESAS_API_KEY
     console.log('dev')
   } else {
-    apiKey = process.env.VITE_RESAS_API_KEY as string
+    apiKey = process.env.RESAS_API_KEY as string
     console.log('prod')
   }
 
