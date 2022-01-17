@@ -60,7 +60,7 @@ https://prefectural-population-graph.vercel.app/
 
 issue ドリブン開発
 
-#　主な使用技術
+# 主な使用技術
 
 - Vite
 - preact
