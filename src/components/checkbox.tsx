@@ -27,8 +27,12 @@ const GridLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   place-items: flex-start;
+  max-height: 100px;
+  overflow-y: scroll;
   ${pc`
+	max-height: none;
 	gap: 5px 0;
+	overflow-y: visible;
 	`}
 `
 
