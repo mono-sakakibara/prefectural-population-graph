@@ -9,29 +9,34 @@ interface Props {
 
 const Heading1 = styled.h1<{ marginBottom?: boolean }>`
   font-size: 1.4rem;
+  display: inline-block;
   ${(props?) =>
     props.marginBottom &&
     css`
       margin-bottom: 20px;
     `}
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: black;
+  }
 `
 
 const Heading2 = styled.h2<{ marginBottom?: boolean }>`
   font-size: 1.4rem;
-  ${(props) =>
+  display: inline-block;
+  ${(props?) =>
     props.marginBottom &&
     css`
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     `}
-`
-
-const Heading3 = styled.h3<{ marginBottom?: boolean }>`
-  font-size: 1.4rem;
-  ${(props) =>
-    props.marginBottom &&
-    css`
-      margin-bottom: 16px;
-    `}
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: black;
+  }
 `
 
 export const Heading: FunctionalComponent<Props> = ({
@@ -45,9 +50,6 @@ export const Heading: FunctionalComponent<Props> = ({
     }
     case 'h2': {
       return <Heading2 marginBottom={marginBottom}>{children}</Heading2>
-    }
-    case 'h3': {
-      return <Heading3 marginBottom={marginBottom}>{children}</Heading3>
     }
     default: {
       return <Heading1 marginBottom={marginBottom}>{children}</Heading1>
