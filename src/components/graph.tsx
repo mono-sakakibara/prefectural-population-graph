@@ -21,8 +21,11 @@ export const Graph: FunctionalComponent<Props> = ({ populationData }) => {
     for (let i = 0; i < populationArray.length; i++) {
       const population = populationArray[i]
 
-      data.push(population.value)
-      categories.push(String(population.year))
+      // 出力したい年度のレンジを範囲指定
+      if (1980 <= population.year && population.year <= 2020) {
+        data.push(population.value)
+        categories.push(String(population.year))
+      }
     }
     series.push({
       type: 'line',
