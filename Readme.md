@@ -45,7 +45,7 @@ https://prefectural-population-graph.vercel.app/
 - ◯ Google Chrome 最新版で正しく動くこと<br/>
   → chrome ver.97.0.4692.71 で確認
   
-- PC/スマートフォン表示に対応すること(レスポンシブデザイン対応)。<br/>
+- ○ PC/スマートフォン表示に対応すること(レスポンシブデザイン対応)。<br/>
   ※ ただし実機でなく、Google Chrome の検証ツールで確認できればよい<br/>
   → chrome ver.97.0.4692.71 で確認
   
