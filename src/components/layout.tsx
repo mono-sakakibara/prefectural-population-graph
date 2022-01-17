@@ -4,11 +4,12 @@ import { pc } from '../media'
 export const Section = styled.section`
   max-width: 350px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 0 10px;
   ${pc`
-	max-width:none;;
 	width:100%;
+	max-width:none;;
+	margin-top: 50px;
 	padding: 0 100px;
 `}
 `

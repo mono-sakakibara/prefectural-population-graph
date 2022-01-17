@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.header`
   background-color: blue;
-  height: 100px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@ const Wrapper = styled.header`
 `
 
 const Title = styled.span`
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: white;
 `
