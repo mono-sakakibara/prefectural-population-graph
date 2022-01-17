@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { pc } from '../media'
 
 export const Section = styled.section`
-  width: 350px;
+  max-width: 350px;
   margin: 0 auto;
   margin-top: 50px;
+  padding: 0 10px;
   ${pc`
 	width:100%;
 	padding: 0 100px;
@@ -28,4 +29,7 @@ export const CheckBoxWrapper = styled.div`
 export const GraphWrapper = styled.div`
   width: 100%;
   margin-top: 50px;
+  ${pc`
+	margin-top: 0px;
+	`}
 `
