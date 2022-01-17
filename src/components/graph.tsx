@@ -64,8 +64,8 @@ export const Graph: FunctionalComponent<Props> = ({ populationData }) => {
   }
 
   return (
-    <div>
+    <figure>
       <HighchartsReact highcharts={Highcharts} options={options} />
-    </div>
+    </figure>
   )
 }
