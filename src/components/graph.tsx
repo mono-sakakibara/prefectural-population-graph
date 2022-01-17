@@ -1,4 +1,5 @@
 import { FunctionalComponent } from 'preact'
+import { useMedia } from 'use-media'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -34,6 +35,8 @@ export const Graph: FunctionalComponent<Props> = ({ populationData }) => {
     })
   }
 
+  const isPc = useMedia({ minWidth: 1025 })
+
   const options: Highcharts.Options = {
     title: {
       text: '総人口推移',
@@ -50,9 +53,9 @@ export const Graph: FunctionalComponent<Props> = ({ populationData }) => {
       },
     },
     legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle',
+      layout: isPc ? 'vertical' : 'horizontal',
+      align: isPc ? 'right' : 'center',
+      verticalAlign: isPc ? 'middle' : 'top',
     },
     series:
       series.length === 0
