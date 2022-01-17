@@ -20,7 +20,7 @@ export const Header: FunctionalComponent = () => {
   return (
     <>
       <Wrapper>
-        <Title>都道府県別 人口構成グラフ</Title>
+        <Title>都道府県別 総人口推移グラフ</Title>
       </Wrapper>
     </>
   )

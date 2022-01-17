@@ -96,7 +96,7 @@ export function App() {
             </Layout.CheckBoxWrapper>
             <Layout.GraphWrapper>
               <Heading variant='h2' marginBottom>
-                人口推移グラフ
+                総人口推移グラフ
               </Heading>
               <Graph populationData={prefPopulation} />
             </Layout.GraphWrapper>
