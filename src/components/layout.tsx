@@ -7,13 +7,13 @@ export const Section = styled.section`
   margin-top: 50px;
   padding: 0 10px;
   ${pc`
+	max-width:none;;
 	width:100%;
 	padding: 0 100px;
 `}
 `
 export const Container = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
   ${pc`
 	flex-direction: row;
